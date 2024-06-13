@@ -94,6 +94,19 @@ app.post("/viewall",(req,res)=>{
         }
     )
 })
+app.post("/search",(req,res)=>{
+    let input=req.body
+    busmodel.find(input).then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
+    
+})
 
  
 app.listen(8080,()=>{
